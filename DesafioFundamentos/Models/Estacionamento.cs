@@ -36,11 +36,11 @@ namespace DesafioFundamentos.Models
 
                 Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
 
-                decimal horas = 0M;
+                decimal horas = 0;
                 horas = Convert.ToDecimal(Console.ReadLine()); 
 
                 decimal valorTotal = precoInicial + (horas * precoPorHora); 
-                veiculos.Remove(placa);;
+                veiculos.Remove(placa);
 
 
                 Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {Math.Round(valorTotal,2)} reais");
