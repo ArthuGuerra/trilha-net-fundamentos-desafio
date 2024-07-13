@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DesafioFundamentos.Exceptions;
 
 namespace RepositorioEstacionamentoOF.Models
 {
@@ -20,6 +21,8 @@ namespace RepositorioEstacionamentoOF.Models
 
         public virtual void AddVehicle()
         {
+            try
+            {
             Console.WriteLine("Informe a placa do veículo nesse formato: xxxx-0000");
             Console.WriteLine("\n");
             Placa = Console.ReadLine();
@@ -41,6 +44,13 @@ namespace RepositorioEstacionamentoOF.Models
                 Console.ReadLine();
                 Console.Clear();
                
+            }
+            } catch (FormatException e)
+            {
+                Console.WriteLine("Erro de formato" + e.Message);
+            } catch (Exception a)
+            {
+                Console.WriteLine(a.Message);
             }
             
         }

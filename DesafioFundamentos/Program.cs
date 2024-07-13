@@ -1,10 +1,11 @@
 ﻿using RepositorioEstacionamentoOF.Models;
 using System.Globalization;
+using DesafioFundamentos.Exceptions;
 
 
-/// colocar as exceções
 
-
+try
+{
 Console.WriteLine($"Olá, bem vindo ao estacionamento Guerra ");
 Console.WriteLine($"Temos 2 opções de estacionamento, comum e o de luxo. ");
 Console.WriteLine("");
@@ -89,5 +90,11 @@ switch(est)
     }
     break;
 }
-
+} catch (FormatException e)
+{
+    Console.WriteLine(e.Message);
+} catch (Exception e)
+{
+    Console.WriteLine(e.Message);
+}
 

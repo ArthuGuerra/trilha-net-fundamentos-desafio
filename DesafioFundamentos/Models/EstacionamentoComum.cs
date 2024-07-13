@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Globalization;
 using System.Threading.Tasks;
+using DesafioFundamentos.Exceptions;
 
 namespace RepositorioEstacionamentoOF.Models
 {
@@ -13,6 +14,8 @@ namespace RepositorioEstacionamentoOF.Models
 
           public sealed override void RemoveVehicle(DateTime seg)
         {
+            try
+            {
             Console.WriteLine("Informe a placa do veículo nesse formato: xxxx-0000");
             Console.WriteLine("\n");
             string plate = Console.ReadLine();
@@ -44,7 +47,13 @@ namespace RepositorioEstacionamentoOF.Models
                 Console.Clear();
             }
 
-            
+            } catch (FormatException e)
+            {
+                Console.WriteLine("Erro de formato" + e.Message);
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }
